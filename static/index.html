@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EmotionAI · Feel the text</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <main class="wrap">
+    <header>
+      <span class="pill"><i id="statusDot"></i><span id="statusText">Connecting…</span></span>
+      <h1>Emotion<span>AI</span></h1>
+      <p>Type anything. A BiGRU deep learning model reads the feeling behind it.</p>
+    </header>
+
+    <section class="card input-card">
+      <textarea id="text" maxlength="2000" placeholder="e.g. I can't believe I finally got the job!"></textarea>
+      <div class="row">
+        <span id="count">0 / 2000</span>
+        <div class="actions">
+          <button id="clear" class="ghost">Clear</button>
+          <button id="analyze" class="primary"><span class="label">Analyze</span><span class="spinner"></span></button>
+        </div>
+      </div>
+      <div class="chips" id="chips"></div>
+    </section>
+
+    <section class="card result" id="result" hidden>
+      <div class="top">
+        <div class="emoji" id="emoji">😂</div>
+        <div>
+          <small>Detected emotion</small>
+          <h2 id="emotion">Joy</h2>
+          <div class="conf"><b id="confidence">0%</b> confidence</div>
+        </div>
+      </div>
+      <div class="bars" id="bars"></div>
+    </section>
+
+    <p class="error" id="error" hidden></p>
+
+    <section class="card history" id="historyBox" hidden>
+      <h3>Recent</h3>
+      <ul id="history"></ul>
+    </section>
+
+    <footer>Built with FastAPI · TensorFlow · BiGRU</footer>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
